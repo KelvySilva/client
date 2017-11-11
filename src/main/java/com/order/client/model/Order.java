@@ -1,62 +1,39 @@
 package com.order.client.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
-@AttributeOverride(name = "createDate", column = @Column(name = "std_entry_date"))
-public class Order implements Serializable {
+public class Order {
 
-
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private BigDecimal id;
 	
-	private BigDecimal quant;
-	
-	private BigDecimal subtotal;
-	
 	private BigDecimal iduser;
 	
-	private BigDecimal idproduto;
+	private BigDecimal idcarrer;
 	
-	private BigDecimal preco;
+	private String status;
 
-	
-	
 	public BigDecimal getId() {
 		return id;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public void setId(BigDecimal id) {
 		this.id = id;
-	}
-
-	public BigDecimal getQuant() {
-		return quant;
-	}
-
-	public void setQuant(BigDecimal quant) {
-		this.quant = quant;
-	}
-
-	public BigDecimal getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(BigDecimal subtotal) {
-		this.subtotal = subtotal;
 	}
 
 	public BigDecimal getIduser() {
@@ -67,21 +44,12 @@ public class Order implements Serializable {
 		this.iduser = iduser;
 	}
 
-	public BigDecimal getIdproduto() {
-		return idproduto;
+	public BigDecimal getIdcarrer() {
+		return idcarrer;
 	}
 
-	public void setIdproduto(BigDecimal idproduto) {
-		this.idproduto = idproduto;
+	public void setIdcarrer(BigDecimal idcarrer) {
+		this.idcarrer = idcarrer;
 	}
-
-	public BigDecimal getPreco() {
-		return preco;
-	}
-
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
-	}
-
 	
 }

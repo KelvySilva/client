@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.order.client.model.Orders;
+import com.order.client.model.Order;
 import com.order.client.repository.OrderRepository;
 
 @RestController
@@ -21,22 +21,22 @@ public class OrderController {
 	OrderRepository repository;
 	
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
-	public List<Orders> findAllOrders() {
+	public List<Order> findAllOrders() {
 		return this.repository.findAll();
 	}
 	
 	@RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
-	public Orders findById(@PathVariable BigDecimal id) {
+	public Order findById(@PathVariable BigDecimal id) {
 		return repository.findOne(id);
 	}
 	
 	@RequestMapping(value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void saveOrderInApplication(@RequestBody Orders order){
+	public void saveOrderInApplication(@RequestBody Order order){
 		this.repository.save(order);
 	}
 	
 	@RequestMapping(value = "/order", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void update(@RequestBody Orders order) {
+	public void update(@RequestBody Order order) {
 		this.repository.saveAndFlush(order);
 	}
 	
